@@ -1,2 +1,42 @@
-var app = angular.module('SocialNetwork', []);
+var app = angular.module('SocialNetwork', ['ngRoute', 'ngResource']);
+
+app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
+
+app.config(function ($routeProvider) {
+
+    $routeProvider.when('/', {
+        templateUrl: 'partials/register-login-view.html',
+        controller: 'RegisterAndLoginController'
+    });
+
+    $routeProvider.when('/home', {
+        templateUrl: 'partials/news-feed-view.html',
+        controller: 'NewsFeedController'
+    });
+
+    $routeProvider.when('/password', {
+        templateUrl: 'partials/change-password-view.html',
+        controller: 'ChangePasswordController'
+    });
+
+    $routeProvider.when('/profile', {
+        templateUrl: 'partials/edit-profile.html',
+        controller: 'EditProfileController'
+    });
+
+    $routeProvider.otherwise(
+        { redirectTo: '/' }
+    );
+
+});
+
+app.run(function ($rootScope, $location, authenticationService) {
+    $rootScope.$on('$locationChangeStart', function (event) {
+        if ($location.path().indexOf("/user/") != -1 && !authenticationService.isLoggedIn()) {
+            $location.path("/");
+        }
+    });
+});
+
+
 
