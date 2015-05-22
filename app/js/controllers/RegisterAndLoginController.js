@@ -15,7 +15,6 @@ app.controller('RegisterAndLoginController', function ($scope, $location, authen
         $scope.register = function register(userData){
             authenticationService.register($scope.regUserData,
             function(data){
-
                 $location.path('/home');
             },
             function(error){
