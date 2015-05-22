@@ -1,0 +1,44 @@
+<div id="container">
+    <div class="login-register">
+        <h2>Login</h2>
+        <p>
+            <label for="username">Username:</label>
+            <input type="text" id="username" ng-model="userData.username" required />
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" ng-model="userData.password" required />
+        </p>
+        <p>
+            <input type="submit" ng-click="login(userData)" value="Login">
+        </p>
+    </div>
+    <div class="login-register">
+        <h2>Register</h2>
+        <p>
+            <label for="username">Username:</label>
+            <input type="text" id="reg-username" ng-model="regUserData.username" required />
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <input type="password" id="reg-password" ng-model="regUserData.password" required />
+        </p>
+        <p>
+            <label for="confirmPassword">Confirm password:</label>
+            <input type="password" id="confirmPassword" ng-model="regUserData.confirmPassword" required />
+        </p>
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" ng-model="regUserData.name" required />
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="text" id="email" ng-model="regUserData.email" required />
+        </p>
+
+        <p>
+            <input type="submit"  ng-click="register(regUserData)" value="Register">
+        <p>
+    </div>
+</div>
+

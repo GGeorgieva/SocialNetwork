@@ -1,0 +1,33 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: rgb(9, 155, 155);
+}
+.wrapper{
+    width:100%;
+}
+.login-register{
+    padding: 10px;
+    margin:10px;
+    background-color: rgb(28, 221, 221);
+    color:rgb(19, 110, 110);
+    border-top-right-radius: 20px;
+}
+#container{
+    display:flex;
+    flex-flow: row wrap;
+    max-width:960px;
+    margin:0 auto;
+    position:relative;
+}
+
+input{
+    float:right;
+}
+
+input[type="submit"]{
+    background-color: rgb(9, 155, 155);
+    border-radius:6px;
+    color:rgb(28, 221, 221);
+
+}
