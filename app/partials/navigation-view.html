@@ -1,1 +1,24 @@
-<div></div>
+<div class="nav-bar" ng-controller="UserNavigationController">
+    <div id="me">
+        <img src="{{me.profileImageData}}" height="55" width="55">
+        <p>{{me.name|uppercase}}</p>
+    </div>
+    <div id="navigation">
+        <button>
+            <img id="news-feed" src="./images/newsFeed.png" height="42" width="42">
+        </button>
+        <button>
+            <img id="users" src="./images/Users.png" height="42" width="42">
+        </button>
+        <button>
+            <img id="password" src="./images/Password.png" height="42" width="42">
+        </button>
+        <button>
+            <img id="profile" src="./images/Profile.png" height="42" width="42">
+        </button>
+        <button ng-click="logout()">
+            <img id="logout" src="./images/logout.png" height="42" width="42">
+        </button>
+    </div>
+
+</div>

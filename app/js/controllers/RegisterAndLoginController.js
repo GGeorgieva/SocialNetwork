@@ -1,4 +1,4 @@
-app.controller('RegisterAndLoginController', function ($scope, $location, authenticationService, notifyService) {
+app.controller('RegisterAndLoginController', function ($scope, $location, authenticationService, userService,notifyService) {
     $scope.login = function login(userData){
            authenticationService.login($scope.userData,
                 function(data){
@@ -15,6 +15,7 @@ app.controller('RegisterAndLoginController', function ($scope, $location, authen
         $scope.register = function register(userData){
             authenticationService.register($scope.regUserData,
             function(data){
+
                 $location.path('/home');
             },
             function(error){
