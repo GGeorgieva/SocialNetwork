@@ -29,14 +29,12 @@ input[type="submit"]{
     background-color: rgb(9, 155, 155);
     border-radius:6px;
     color:rgb(28, 221, 221);
-<<<<<<< HEAD
 }
 
-#me, #navigation{
+#my-photo, #my-name, #navigation{
     display: inline-block;
     padding:2%;
+    color:rgb(28, 221, 221);
 }
-=======
 
-}
->>>>>>> 50998a52e3873fbb42cfc1273f433ee0b08c15bf
+

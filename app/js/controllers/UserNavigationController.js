@@ -1,4 +1,5 @@
-app.controller('UserNavigationController', function ($scope, authenticationService, $location, userService) {
+app.controller('UserNavigationController', function (
+    $scope, authenticationService, $location, userService, notifyService) {
     userService.getDataAboutMe(function(data){
             $scope.me = data;
         },
@@ -8,8 +9,16 @@ app.controller('UserNavigationController', function ($scope, authenticationServi
     );
 
     $scope.logout= function logout() {
-        authenticationService.logout();
-        $location.path("/");
+        authenticationService.logout(function(){
+                notifyService.showInfo("You have successfully logged out!");
+                $location.path("/");
+            },
+            function(error)  {
+                notifyService.showInfo("Logout failed!", error);
+                console.log(error);
+            }
+        );
+
     }
 
     $scope.getUserPreview = function(userName){

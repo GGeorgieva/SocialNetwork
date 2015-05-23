@@ -2,9 +2,8 @@ app.controller('RegisterAndLoginController', function ($scope, $location, authen
     $scope.login = function login(userData){
            authenticationService.login($scope.userData,
                 function(data){
-
+                    notifyService.showInfo("You have successfully logged in!")
                     $location.path('/home');
-
                 },
                 function(error){
                     notifyService.showError("Login failed", error);

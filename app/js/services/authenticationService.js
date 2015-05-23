@@ -25,8 +25,17 @@ app.factory('authenticationService',
                 }).error(error);
             },
 
-            logout: function() {
-                delete sessionStorage['currentUser'];
+            logout: function( success, error) {
+                var headers = this.getAuthHeaders();
+                var request = {
+                    method: 'POST',
+                    url: baseServiceUrl + '/api/users/logout',
+                    headers: headers
+                };
+                $http(request).success(function(data) {
+                    delete sessionStorage['currentUser'];
+                    success(data);
+                }).error(error);
             },
 
             getCurrentUser : function() {
