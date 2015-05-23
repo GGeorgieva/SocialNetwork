@@ -1,12 +1,14 @@
 app.controller('UserNavigationController', function (
     $scope, authenticationService, $location, userService, notifyService) {
-    userService.getDataAboutMe(function(data){
-            $scope.me = data;
-        },
-        function(error)  {
-            console.log(error);
-        }
-    );
+    if(authenticationService.isLoggedIn()){
+        userService.getDataAboutMe(function(data){
+                $scope.me = data;
+            },
+            function(error)  {
+                console.log(error);
+            }
+        );
+    }
 
     $scope.logout= function logout() {
         authenticationService.logout(function(){

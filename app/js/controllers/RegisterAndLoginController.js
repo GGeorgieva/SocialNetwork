@@ -1,7 +1,7 @@
-app.controller('RegisterAndLoginController', function ($scope, $location, authenticationService, userService,notifyService) {
+app.controller('RegisterAndLoginController', function ($scope, $location, authenticationService, userService, notifyService) {
     $scope.login = function login(userData){
            authenticationService.login($scope.userData,
-                function(data){
+                function(){
                     notifyService.showInfo("You have successfully logged in!")
                     $location.path('/home');
                 },
