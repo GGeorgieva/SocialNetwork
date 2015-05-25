@@ -9,18 +9,18 @@ app.config(function ($routeProvider) {
         controller: 'RegisterAndLoginController'
     });
 
-    $routeProvider.when('/home', {
+    $routeProvider.when('/user/home', {
         templateUrl: 'partials/news-feed-view.html',
         controller: 'NewsFeedController'
     });
 
-    $routeProvider.when('/password', {
+    $routeProvider.when('/user/password', {
         templateUrl: 'partials/change-password-view.html',
         controller: 'ChangePasswordController'
     });
 
-    $routeProvider.when('/profile', {
-        templateUrl: 'partials/edit-profile.html',
+    $routeProvider.when('/user/profile', {
+        templateUrl: 'partials/edit-profile-view.html',
         controller: 'EditProfileController'
     });
 

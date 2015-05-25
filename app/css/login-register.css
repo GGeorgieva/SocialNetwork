@@ -2,10 +2,12 @@ body{
     margin:0;
     padding:0;
     background-color: rgb(9, 155, 155);
+    color:rgb(42, 69, 69);
 }
 .wrapper{
     width:100%;
 }
+/*login-register*/
 .login-register{
     padding: 10px;
     margin:10px;
@@ -21,20 +23,31 @@ body{
     position:relative;
 }
 
-input{
+.login-register>p>input{
     float:right;
 }
 
 input[type="submit"]{
     background-color: rgb(9, 155, 155);
     border-radius:6px;
-    color:rgb(28, 221, 221);
+    color: rgb(28, 221, 221);
 }
+/*login-register*/
 
+/*navigation*/
 #my-photo, #my-name, #navigation{
     display: inline-block;
     padding:2%;
-    color:rgb(28, 221, 221);
+    color:rgb(190, 190, 190);
 }
+#navigation>a>img{
+    background-color: rgb(190, 190, 190);
+    opacity: 0.8;
+    border: 1px solid;
+    border-color: rgb(120, 178, 178);
+}
+/*navigation*/
+
+
 
 

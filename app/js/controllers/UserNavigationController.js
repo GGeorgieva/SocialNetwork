@@ -11,28 +11,26 @@ app.controller('UserNavigationController', function (
     }
 
     $scope.logout= function logout() {
-        authenticationService.logout(function(){
-                notifyService.showInfo("You have successfully logged out!");
+        authenticationService.logout(function(data){
+                notifyService.showInfo(data.message);
                 $location.path("/");
             },
             function(error)  {
-                notifyService.showInfo("Logout failed!", error);
+                notifyService.showInfo(error.message, error);
                 console.log(error);
             }
         );
 
     }
 
-    $scope.getUserPreview = function(userName){
+    $scope.getUserPreview = function (userName){
         userService.getUserPreview(userName, function(data){
                 $scope.userPreview = data;
                 console.log(data);
             },
             function(error)  {
-                console.log(error);
+                notifyService.showError(error.message, error);
             }
         )
     }
-
-
 });

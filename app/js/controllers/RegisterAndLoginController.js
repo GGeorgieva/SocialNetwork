@@ -1,9 +1,9 @@
 app.controller('RegisterAndLoginController', function ($scope, $location, authenticationService, userService, notifyService) {
     $scope.login = function login(userData){
-           authenticationService.login($scope.userData,
+           authenticationService.login(userData,
                 function(){
-                    notifyService.showInfo("You have successfully logged in!")
-                    $location.path('/home');
+                    notifyService.showInfo("You have successfully logged in!");
+                    $location.path('/user/home');
                 },
                 function(error){
                     notifyService.showError("Login failed", error);
@@ -12,12 +12,13 @@ app.controller('RegisterAndLoginController', function ($scope, $location, authen
             );
         },
         $scope.register = function register(userData){
-            authenticationService.register($scope.regUserData,
+            authenticationService.register(userData,
             function(data){
-                $location.path('/home');
+                notifyService.showInfo("You have successfully registered!");
+                $location.path('/user/home');
             },
             function(error){
-                notifyService.showError("Register failed", error);
+                notifyService.showError("Registration failed", error);
                 console.log(error);
             })
         }
