@@ -1,33 +1,39 @@
 <div ng-include="'partials/navigation-view.html'"></div>
-<div class="box">
+<header>
     <h2>Edit Profile</h2>
-    <p>
-        <label for="name">Name:</label>
-        <input type="text" id="name" ng-model="editProfileData.name" required placeholder="{{editProfileData.name}}"/>
-    </p>
-    <p>
-        <label for="email">Email:</label>
-        <textarea id="email" ng-model="editProfileData.email" required placeholder="{{editProfileData.email}}"></textarea>
-    </p>
-
-    <p>Gender:
-        <input type="radio" ng-model="editProfileData.gender" value="male" />Male
-        <input type="radio" ng-model="editProfileData.gender" value="female" />Female
-    </p>
-    <p>
-        <label for="profile-image">Profile image:</label>
-        <input type="file" id="profile-image" onchange="angular.element(this).scope().profileImageSelected(this)" />
-    <div id="profile-image-box">
-        <p><img src="{{editProfileData.profileImageData}}" height="100" width="100"></p>
+</header>
+<div id="container">
+    <div class="edit">
+        <p>
+            <label for="cover-image">Cover image:</label>
+            <input type="file" id="cover-image" onchange="angular.element(this).scope().coverImageSelected(this)" />
+        </p>
+        <div id="cover-image-box">
+            <img src="{{editProfileData.coverImageData}}" height="100" width="100">
+        </div>
     </div>
-    </p>
-    <p>
-        <label for="cover-image">Profile image:</label>
-        <input type="file" id="cover-image" onchange="angular.element(this).scope().coverImageSelected(this)" />
-    <div id="cover-image-box">
-        <p><img src="{{editProfileData.coverImageData}}" height="100" width="100"></p>
+    <div class="edit">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" ng-model="editProfileData.name" required placeholder="{{editProfileData.name}}"/>
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <textarea id="email" ng-model="editProfileData.email" required placeholder="{{editProfileData.email}}"></textarea>
+        </p>
+        <p>Gender:
+            <input type="radio" ng-model="editProfileData.gender" value="male" />Male
+            <input type="radio" ng-model="editProfileData.gender" value="female" />Female
+        </p>
+        <p>
+            <label for="profile-image">Profile image:</label>
+            <input type="file" id="profile-image" onchange="angular.element(this).scope().profileImageSelected(this)" />
+        </p>
+            <div id="profile-image-box">
+                <img src="{{editProfileData.profileImageData}}" height="100" width="100">
+            </div>
+        </p>
+        <button ng-click="editProfile(editProfileData)">Save Changes</button>
     </div>
-
-   <button ng-click="editProfile(editProfileData)">Save Changes</button>
 
 </div>

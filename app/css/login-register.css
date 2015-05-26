@@ -47,7 +47,13 @@ input[type="submit"]{
     border-color: rgb(120, 178, 178);
 }
 /*navigation*/
-
+/*edit profile*/
+.edit{
+    border:1px solid rgb(120, 178, 178);
+}
+input [type="file"]{
+    background-color: rgb(28, 221, 221);
+}
 
 
 

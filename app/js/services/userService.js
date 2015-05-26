@@ -20,6 +20,16 @@ app.factory('userService',
                 $http(request).success(success).error(error);
             },
 
+            editPassword: function(data, success, error){
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/me/changepassword',
+                    data: data,
+                    headers: authenticationService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
             getUserPreview: function(userName, success, error){
                 var request = {
                     method: 'GET',
