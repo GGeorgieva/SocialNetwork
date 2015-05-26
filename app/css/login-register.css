@@ -1,11 +1,25 @@
 body{
     margin:0;
     padding:0;
-    background-color: rgb(9, 155, 155);
-    color:rgb(42, 69, 69);
+    background-color: rgb(141, 133, 153);
+    color:rgb(190, 190, 190);
 }
 .wrapper{
     width:100%;
+}
+#container, #post-wrapper{
+    display:flex;
+    flex-flow: row wrap;
+    max-width:960px;
+    margin:2%;
+    position:relative;
+}
+
+header{
+    display: block;
+    border-bottom: 2px solid rgb(190, 190, 190);
+    position: relative;
+    margin: 2%;
 }
 /*login-register*/
 .login-register{
@@ -15,13 +29,7 @@ body{
     color:rgb(19, 110, 110);
     border-top-right-radius: 20px;
 }
-#container{
-    display:flex;
-    flex-flow: row wrap;
-    max-width:960px;
-    margin:0 auto;
-    position:relative;
-}
+
 
 .login-register>p>input{
     float:right;
@@ -35,25 +43,65 @@ input[type="submit"]{
 /*login-register*/
 
 /*navigation*/
-#my-photo, #my-name, #navigation{
-    display: inline-block;
-    padding:2%;
+#navigation{
+    margin:2%;
+    display: flex;
+    flex-wrap: wrap;
     color:rgb(190, 190, 190);
+    border-bottom: 2px solid rgb(190, 190, 190);
 }
-#navigation>a>img{
-    background-color: rgb(190, 190, 190);
-    opacity: 0.8;
-    border: 1px solid;
-    border-color: rgb(120, 178, 178);
+#navigation>div{
+    width:10%;
 }
+
 /*navigation*/
 /*edit profile*/
 .edit{
     border:1px solid rgb(120, 178, 178);
 }
+
 input [type="file"]{
     background-color: rgb(28, 221, 221);
 }
+/*edit profile*/
+/*news feed*/
+#post-wrapper{
+    flex-flow: column;
+    position: relative;
+}
+.post-container{
+    background-color: rgb(160, 145, 168);
+    margin:2%;
+    border-radius:20px;
+}
 
+.post-container > .post-comment{
+    background-color:rgb(150, 133, 157);
+    margin:2% 2% 2% 25%;
+    border-radius: 20px;
+
+}
+
+.post-container > img{
+    display: block;
+    width:50px;
+    margin:2%;
+    border-radius: 20px;
+    float:left;
+}
+
+.post-container > p{
+    display: block;
+    margin:2%;
+
+}
+
+.post-comment > img{
+    display: block;
+    width:30px;
+    margin:2%;
+    border-radius: 20px;
+    float:left;
+}
 
 

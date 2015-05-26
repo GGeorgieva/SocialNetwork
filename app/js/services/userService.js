@@ -37,6 +37,16 @@ app.factory('userService',
                     headers: authenticationService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
+            },
+
+            searchUsersByName: function(searchTerm, success, error){
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/users/search?searchTerm='+ searchTerm,
+                    headers: authenticationService.getAuthHeaders(),
+                    searchTerm: searchTerm
+                };
+                $http(request).success(success).error(error);
             }
         }
     }

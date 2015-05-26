@@ -1,2 +1,18 @@
 <div ng-include="'partials/navigation-view.html'"></div>
-
+<header>
+    <h2>News Feed</h2>
+</header>
+<div id="post-wrapper">
+    <div class="post-container" ng-repeat="post in posts">
+        <img src="{{post.author.profileImageData}}">
+        <p>{{post.author.name}}</p>
+        <p>{{post.date| date: 'd MMM yyyy HH:mm:ss'}}</p>
+        <p>{{post.postContent }}</p>
+        <div class="post-comment" ng-repeat="comment in post.comments">
+            <img src="{{comment.author.profileImageData}}">
+            <p>{{comment.author.name}}</p>
+            <p>{{comment.date| date: 'd MMM yyyy HH:mm:ss'}}</p>
+            <p>{{comment.commentContent }}</p>
+        </div>
+    </div>
+</div>

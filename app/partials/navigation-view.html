@@ -1,24 +1,38 @@
 <div class="nav-bar" ng-controller="UserNavigationController">
-    <div id="my-photo">
-        <img src="{{me.profileImageData}}" height="55" width="55">
-    </div>
-    <div id="my-name">{{me.name|uppercase}}</div>
     <div id="navigation">
-        <a href="/#user/home">
-            <img id="news-feed" src="./images/newsFeed.png" height="42" width="42">
-        </a>
+        <div id="my-photo">
+            <img src="{{me.profileImageData}}" height="55" width="55">
+        </div>
+        <div id="my-name">{{me.name|uppercase}}</div>
+        <div>
+            <a href="#/user/home">
+                <img id="news-feed" src="./images/newsFeed.png" width="70">
+            </a>
+        </div>
+        <div>
         <a href="#">
-            <img id="users" src="./images/Users.png" height="42" width="42">
+            <img id="users" src="./images/Users.png" width="60">
         </a>
-        <a href="#/user/password">
-            <img id="password" src="./images/Password.png" height="42" width="42">
-        </a>
-        <a href="#/user/profile">
-            <img id="profile" src="./images/Profile.png" height="42" width="42">
-        </a>
-        <a href="#" ng-click="logout()">
-            <img id="logout" src="./images/logout.png" height="42" width="42">
-        </a>
+        </div>
+        <div>
+            <a href="#/user/password">
+                <img id="password" src="./images/Password.png"  width="60">
+            </a>
+        </div>
+        <div>
+            <a href="#/user/profile">
+                <img id="profile" src="./images/Profile.png" width="60">
+            </a>
+        </div>
+        <div>
+            <a href="#" ng-click="logout()">
+                <img id="logout" src="./images/logout.png" width="60">
+            </a>
+        </div>
+        <div>
+            <input type="text" id="ajax" list="json-datalist" placeholder="Type a name" ng-model="searchTerm" ng-change="searchUser(searchTerm)">
+            <datalist id="json-datalist" ></datalist>
+        </div>
 
     </div>
 </div>

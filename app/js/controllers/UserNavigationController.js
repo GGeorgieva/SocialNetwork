@@ -33,4 +33,23 @@ app.controller('UserNavigationController', function (
             }
         )
     }
+
+    //search users
+    $scope.searchUser=function searchUser(searchTerm){
+        userService.searchUsersByName(searchTerm,
+            function (data) {
+                console.log(data);
+                var dataList = document.getElementById('json-datalist');
+                var input = document.getElementById('ajax');
+                data.forEach(function(person) {
+                        var option = document.createElement('option');
+                        option.value = person.name;
+                        dataList.appendChild(option);
+                })
+            },
+            function(error){
+                notifyService.showError(error.message,error);
+            }
+        )
+    }
 });
