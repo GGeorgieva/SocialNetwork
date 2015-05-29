@@ -1,107 +1,28 @@
-body{
-    margin:0;
-    padding:0;
-    background-color: rgb(141, 133, 153);
-    color:rgb(190, 190, 190);
-}
-.wrapper{
-    width:100%;
-}
-#container, #post-wrapper{
-    display:flex;
-    flex-flow: row wrap;
-    max-width:960px;
-    margin:2%;
-    position:relative;
+.features .glyphicon, .post .glyphicon{
+    font-size: 40px;
 }
 
-header{
-    display: block;
-    border-bottom: 2px solid rgb(190, 190, 190);
-    position: relative;
-    margin: 2%;
-}
-/*login-register*/
-.login-register{
-    padding: 10px;
-    margin:10px;
-    background-color: rgb(28, 221, 221);
-    color:rgb(19, 110, 110);
-    border-top-right-radius: 20px;
+.comment{
+    font-size: 12px;
 }
 
-
-.login-register>p>input{
-    float:right;
-}
-
-input[type="submit"]{
-    background-color: rgb(9, 155, 155);
-    border-radius:6px;
-    color: rgb(28, 221, 221);
-}
-/*login-register*/
-
-/*navigation*/
-#navigation{
-    margin:2%;
-    display: flex;
-    flex-wrap: wrap;
-    color:rgb(190, 190, 190);
-    border-bottom: 2px solid rgb(190, 190, 190);
-}
-#navigation>div{
-    width:10%;
-}
-
-/*navigation*/
-/*edit profile*/
-.edit{
-    border:1px solid rgb(120, 178, 178);
-}
-
-input [type="file"]{
-    background-color: rgb(28, 221, 221);
-}
-/*edit profile*/
-/*news feed*/
-#post-wrapper{
-    flex-flow: column;
-    position: relative;
-}
-.post-container{
-    background-color: rgb(160, 145, 168);
-    margin:2%;
-    border-radius:20px;
-}
-
-.post-container > .post-comment{
-    background-color:rgb(150, 133, 157);
-    margin:2% 2% 2% 25%;
-    border-radius: 20px;
-
-}
-
-.post-container > img{
-    display: block;
-    width:50px;
-    margin:2%;
-    border-radius: 20px;
-    float:left;
-}
-
-.post-container > p{
-    display: block;
-    margin:2%;
-
-}
-
-.post-comment > img{
-    display: block;
+.comment img{
     width:30px;
-    margin:2%;
-    border-radius: 20px;
-    float:left;
 }
 
 
+
+/*col-md-12 - > 992px+(laptop and larger)
+-sm-->768px+(tablet)
+-xs-->0+(phone)
+-lg-->1200+
+
+hidden-sm
+hidden-xs
+visilbe-md
+visible-lg:
+
+<div class="visible-xs col-xs-1 clearfix"></div>
+font awesome library
+
+<div class="row well well-lg(or well-sm for size of padding)"></div>

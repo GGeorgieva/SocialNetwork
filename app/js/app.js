@@ -1,6 +1,7 @@
-var app = angular.module('SocialNetwork', ['ngRoute', 'ngResource']);
+var app = angular.module('SocialNetwork', ['ngRoute', 'ngResource', 'ui.bootstrap.pagination']);
 
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
+app.constant('pageSize', 5);
 
 app.config(function ($routeProvider) {
 
@@ -32,8 +33,8 @@ app.config(function ($routeProvider) {
 
 app.run(function ($rootScope, $location, authenticationService) {
     $rootScope.$on('$locationChangeStart', function (event) {
-        if ($location.path().indexOf("/user/") != -1 && !authenticationService.isLoggedIn()) {
-            $location.path("/");
+        if ($location.path().indexOf('/user/') != -1 && !authenticationService.isLoggedIn()) {
+            $location.path('/');
         }
     });
 });

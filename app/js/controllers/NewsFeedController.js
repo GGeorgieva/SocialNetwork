@@ -1,14 +1,23 @@
-app.controller('NewsFeedController', function ($scope, postService, notifyService, authenticationService, $location) {
-    if(authenticationService.isLoggedIn()){
-        postService.getNewsFeedPage(
-            function(data){
-                console.log(data);
-                console.log(data[0].postContent);
-                $scope.posts = data;
-            },
-            function(error)  {
-                notifyService.showError("Error", error);
-            }
-        );
-    }
-});
+app.controller('NewsFeedController',
+    function ($scope, $location, postService, notifyService, authenticationService, pageSize) {
+        $scope.postPageParams = {
+            'startPage' : 1,
+            'pageSize' : pageSize
+        };
+
+        $scope.authenticationService = authenticationService;
+        $scope.reloadPosts = function(){
+            postService.getNewsFeedPage($scope.postPageParams.startPage, $scope.postPageParams.pageSize,
+                function(data){
+                    $scope.posts = data;
+                    if($scope.posts.length==0){
+                        $scope.posts={};
+                    }
+                },
+                function(error)  {
+                    notifyService.showError("Error loading posts!", error);
+                }
+            )
+        }
+        $scope.reloadPosts();
+    });

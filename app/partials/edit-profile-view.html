@@ -1,9 +1,10 @@
-<div ng-include="'partials/navigation-view.html'"></div>
-<header>
-    <h2>Edit Profile</h2>
-</header>
-<div id="container">
-    <div class="edit">
+<div ng-include="'partials/navigation-view.html'" ng-controller="UserNavigationController"></div>
+<div class="container">
+    <header>
+        <h2>Edit Profile</h2>
+    </header>
+
+    <div class="well well-lg">
         <p>
             <label for="cover-image">Cover image:</label>
             <input type="file" id="cover-image" onchange="angular.element(this).scope().coverImageSelected(this)" />
@@ -12,7 +13,7 @@
             <img src="{{editProfileData.coverImageData}}" height="100" width="100">
         </div>
     </div>
-    <div class="edit">
+    <div class="well well-lg">
         <p>
             <label for="name">Name:</label>
             <input type="text" id="name" ng-model="editProfileData.name" required placeholder="{{editProfileData.name}}"/>

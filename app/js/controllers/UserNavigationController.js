@@ -1,17 +1,10 @@
 app.controller('UserNavigationController', function (
-    $scope, authenticationService, $location, userService, notifyService) {
-    if(authenticationService.isLoggedIn()){
-        userService.getDataAboutMe(function(data){
-                $scope.me = data;
-            },
-            function(error)  {
-                console.log(error);
-            }
-        );
-    }
+    $scope, $location, authenticationService, userService, notifyService){
+    $scope.authenticationService = authenticationService;
 
-    $scope.logout= function logout() {
+    $scope.logout = function logout() {
         authenticationService.logout(function(data){
+                $scope.me={};
                 notifyService.showInfo(data.message);
                 $location.path("/");
             },
@@ -20,7 +13,6 @@ app.controller('UserNavigationController', function (
                 console.log(error);
             }
         );
-
     }
 
     $scope.getUserPreview = function (userName){
@@ -52,4 +44,12 @@ app.controller('UserNavigationController', function (
             }
         )
     }
+
+    userService.getDataAboutMe(function (data) {
+            $scope.me = data;
+        },
+        function (error) {
+            console.log(error);
+        }
+    )
 });
