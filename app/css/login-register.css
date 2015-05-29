@@ -22,7 +22,14 @@ hidden-xs
 visilbe-md
 visible-lg:
 
+<h2 class="row text-center(text-right...)" >
+
 <div class="visible-xs col-xs-1 clearfix"></div>
 font awesome library
 
 <div class="row well well-lg(or well-sm for size of padding)"></div>
+
+<button type="button" class="btn btn-lg btn-default(primary....)"
+
+<ul class="list-unstyled">
+
