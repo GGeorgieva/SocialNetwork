@@ -19,6 +19,18 @@ app.factory('postService', function(baseServiceUrl,authenticationService, $http)
                 headers: authenticationService.getAuthHeaders()
             }
             $http(request).success(success).error(error);
+        },
+
+        addCommentToPost: function(postId, commentContent, success, error){
+            var request={
+                method: 'POST',
+                url: baseServiceUrl + '/api/Posts/'+ postId + '/comments',
+                headers: authenticationService.getAuthHeaders(),
+                data: {
+                    commentContent:commentContent
+                }
+            }
+            $http(request).success(success).error(error);
         }
     }
 

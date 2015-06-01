@@ -5,7 +5,11 @@ app.controller('NewsFeedController',
         };
         $scope.commentPopover = {
             templateUrl: 'templates/popoverComment.html'
+        };
+        $scope.commentTextarea = {
+            templateUrl: 'templates/commentTextarea.html'
         }
+        $scope.commentContent="";
         //TODO: fix getting first post Id for respective page.
         $scope.postPageParams = {
             'startPage' : 1,
@@ -33,6 +37,18 @@ app.controller('NewsFeedController',
         $scope.likePost=function likePost(postId){
             postService.likePost(postId,
                 function (data) {
+                    $scope.loadPosts();
+                },
+                function(error){
+                    notifyService.showError(error.message, error)
+                })
+        }
+        $scope.addCommentToPost = function addCommentToPost(postId) {
+            console.log($scope.commentContent);
+            console.log(postId);
+            postService.addCommentToPost(postId, $scope.commentContent,
+                function (data) {
+
                     $scope.loadPosts();
                 },
                 function(error){
