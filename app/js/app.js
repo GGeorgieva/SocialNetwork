@@ -1,7 +1,7 @@
-var app = angular.module('SocialNetwork', ['ngRoute', 'ngResource', 'ui.bootstrap.pagination']);
+var app = angular.module('SocialNetwork', ['ngRoute', 'ngResource', 'ui.bootstrap']);
 
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
-app.constant('pageSize', 5);
+app.constant('pageSize', 3);
 
 app.config(function ($routeProvider) {
 

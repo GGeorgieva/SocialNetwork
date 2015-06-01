@@ -4,12 +4,17 @@ app.controller('NewsFeedController',
             'startPage' : 1,
             'pageSize' : pageSize
         };
-
+        //TODO: fix getting first post Id for respective page.
+        $scope.startPostId=5591;
         $scope.authenticationService = authenticationService;
-        $scope.reloadPosts = function(){
-            postService.getNewsFeedPage($scope.postPageParams.startPage, $scope.postPageParams.pageSize,
+        $scope.loadPosts = function loadPosts(){
+            console.log($scope.posts);
+            console.log($scope.startPostId);
+            console.log($scope.postPageParams.startPage);
+            postService.getNewsFeedPage($scope.startPostId, pageSize,
                 function(data){
                     $scope.posts = data;
+                    $scope.startPostId = data[data.length-1].id;
                     if($scope.posts.length==0){
                         $scope.posts={};
                     }
@@ -19,5 +24,7 @@ app.controller('NewsFeedController',
                 }
             )
         }
-        $scope.reloadPosts();
+
+
+        $scope.loadPosts();
     });
