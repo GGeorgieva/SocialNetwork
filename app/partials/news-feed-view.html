@@ -20,6 +20,12 @@
             <div class="col-md-12">
                 <p>{{post.postContent}}</p>
             </div>
+            <div class="col-md-8 col-md-offset-4">
+                <p>{{post.likesCount}}</p>
+                <a href="#/user/home">
+                    <i class="glyphicon glyphicon-thumbs-up" ng-click="likePost(post.id)"></i>
+                </a>
+            </div>
             <div class="col-md-6 comment" ng-repeat="comment in post.comments">
                 <div class="col-md-4">
                     <img width=45 ng-src="{{comment.author.profileImageData}}" ng-if="comment.author.profileImageData">

@@ -10,6 +10,15 @@ app.factory('postService', function(baseServiceUrl,authenticationService, $http)
                 PageSize: pageSize
             };
             $http(request).success(success).error(error);
+        },
+
+        likePost: function(postId, success, error){
+            var request={
+                method: 'POST',
+                url: baseServiceUrl + '/api/Posts/'+ postId + '/likes',
+                headers: authenticationService.getAuthHeaders()
+            }
+            $http(request).success(success).error(error);
         }
     }
 
