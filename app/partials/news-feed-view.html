@@ -13,7 +13,8 @@
             <i class="glyphicon glyphicon-user" ng-if="!post.author.profileImageData"></i>
         </div>
             <div class="col-md-8">
-                <p>{{post.author.name}}</p>
+                <a href="#/user/home" popover-template = "dynamicPopover.templateUrl"
+                   popover-trigger="mouseenter" popover-placement="bottom">{{post.author.name}}</a>
                 <p>{{post.date| date: 'd MMM yyyy HH:mm:ss'}}</p>
             </div>
             <div class="col-md-12">
@@ -25,7 +26,8 @@
                     <i class="glyphicon glyphicon-user" ng-if="!comment.author.profileImageData"></i>
                 </div>
                 <div class="col-md-8">
-                    <p>{{comment.author.name}}</p>
+                    <a href="#/user/home" popover-template = "commentPopover.templateUrl"
+                       popover-trigger="mouseenter" popover-placement="bottom">{{comment.author.name}}</a>
                     <p>{{comment.date| date: 'd MMM yyyy HH:mm:ss'}}</p>
                     <div class="col-md-12">
                         <p>{{comment.commentContent }}</p>

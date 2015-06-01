@@ -4,6 +4,12 @@ app.controller('NewsFeedController',
             'startPage' : 1,
             'pageSize' : pageSize
         };
+        $scope.dynamicPopover = {
+            templateUrl: 'templates/popoverUserPost.html'
+        };
+        $scope.commentPopover = {
+            templateUrl: 'templates/popoverComment.html'
+        }
         //TODO: fix getting first post Id for respective page.
         $scope.startPostId=5591;
         $scope.authenticationService = authenticationService;
@@ -24,6 +30,7 @@ app.controller('NewsFeedController',
                 }
             )
         }
+
 
 
         $scope.loadPosts();

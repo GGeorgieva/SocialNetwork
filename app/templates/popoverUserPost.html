@@ -1,0 +1,16 @@
+<div>
+    <img width=45 ng-src="{{post.author.profileImageData}}" ng-if="post.author.profileImageData">
+    <i class="glyphicon glyphicon-user" ng-if="!post.author.profileImageData"></i>
+</div>
+<div>
+    <p>{{post.author.name}}</p>
+    <p ng-if="post.author.gender==1">Gender: male</p>
+    <p ng-if="post.author.gender==2">Gender: female</p>
+</div>
+<div>
+    <button type="button" class="btn btn-primary" ng-if="post.author.isFriend">Friend</button>
+    <button type="button" class="btn btn-primary" ng-if="post.author.hasPendingRequest">Pending</button>
+    <button type="button" class="btn btn-primary"
+            ng-if="!post.author.isFriend && !post.author.hasPendingRequest"
+            ng-click="sendFriendRequest()">Invite</button>
+</div>
