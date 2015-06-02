@@ -47,7 +47,35 @@ app.factory('userService',
                     searchTerm: searchTerm
                 };
                 $http(request).success(success).error(error);
+            },
+
+            getFriendRequests: function(success, error){
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/me/requests',
+                    headers: authenticationService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            approveFriendRequest: function(requestNumber, success, error){
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/me/requests/' + requestNumber + '?status=approved',
+                    headers: authenticationService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            rejectFriendRequest: function(requestNumber, success, error){
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/me/requests/' + requestNumber + '?status=rejected',
+                    headers: authenticationService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
             }
+
         }
     }
 );

@@ -12,6 +12,17 @@ app.factory('postService', function(baseServiceUrl,authenticationService, $http)
             $http(request).success(success).error(error);
         },
 
+        getFirstPage: function(pageSize, success, error){
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + '/api/me/feed?StartPostId=&PageSize=' + pageSize,
+                headers: authenticationService.getAuthHeaders(),
+                StartPostId: startPostId,
+                PageSize: pageSize
+            };
+            $http(request).success(success).error(error);
+        },
+
         likePost: function(postId, success, error){
             var request={
                 method: 'POST',

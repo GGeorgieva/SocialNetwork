@@ -1,5 +1,6 @@
 app.controller('NewsFeedController',
     function ($scope, $location, postService, notifyService, authenticationService, pageSize) {
+        $scope.authenticationService = authenticationService;
         $scope.dynamicPopover = {
             templateUrl: 'templates/popoverUserPost.html'
         };
@@ -15,18 +16,16 @@ app.controller('NewsFeedController',
             'startPage' : 1,
             'pageSize' : pageSize
         };
-        $scope.startPostId=6876;
-        $scope.authenticationService = authenticationService;
         $scope.loadPosts = function loadPosts(){
-            console.log($scope.posts);
-            console.log($scope.startPostId);
-            console.log($scope.postPageParams.startPage);
+            $scope.startPostId = $scope.startPostId || "";
             postService.getNewsFeedPage($scope.startPostId, pageSize,
                 function(data){
+                    console.log(data);
                     $scope.posts = data;
-                    $scope.startPostId = data[data.length-1].id;
                     if($scope.posts.length==0){
-                        $scope.posts={};
+                        $scope.startPostId="";
+                    }else{
+                        $scope.startPostId = data[data.length-1].id;
                     }
                 },
                 function(error)  {
@@ -48,7 +47,6 @@ app.controller('NewsFeedController',
             console.log(postId);
             postService.addCommentToPost(postId, $scope.commentContent,
                 function (data) {
-
                     $scope.loadPosts();
                 },
                 function(error){
@@ -56,5 +54,4 @@ app.controller('NewsFeedController',
                 })
         }
         $scope.loadPosts();
-
     });

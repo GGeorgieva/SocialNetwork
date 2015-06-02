@@ -1,6 +1,9 @@
 app.controller('UserNavigationController', function (
     $scope, $location, authenticationService, userService, notifyService){
     $scope.authenticationService = authenticationService;
+    $scope.requestDetailsPopover = {
+        templateUrl: 'templates/requestDetails.html'
+    };
 
     $scope.logout = function logout() {
         authenticationService.logout(function(data){
@@ -10,7 +13,7 @@ app.controller('UserNavigationController', function (
             },
             function(error)  {
                 notifyService.showInfo(error.message, error);
-                console.log(error);
+                $location.path('/');
             }
         );
     }
@@ -27,7 +30,7 @@ app.controller('UserNavigationController', function (
     }
 
     //search users
-    $scope.searchUser=function searchUser(searchTerm){
+    $scope.searchUser = function searchUser(searchTerm){
         userService.searchUsersByName(searchTerm,
             function (data) {
                 console.log(data);
@@ -45,11 +48,44 @@ app.controller('UserNavigationController', function (
         )
     }
 
+    $scope.approveFriendRequest = function approveFriendRequest(userName){
+        userService.approveFriendRequest(userName,
+            function(data){
+                notifyService.showInfo(data.message);
+                $location.path("/user/home");
+            },
+            function(error){
+                notifyService.showError(error.message,error);
+            }
+        )
+    }
+
+    $scope.rejectFriendRequest = function rejectFriendRequest(userName){
+        userService.rejectFriendRequest(userName,
+            function(data){
+                notifyService.showInfo(data.message);
+                $location.path("/user/home");
+            },
+            function(error){
+                notifyService.showError(error.message,error);
+            }
+        )
+    }
+
     userService.getDataAboutMe(function (data) {
             $scope.me = data;
         },
         function (error) {
             console.log(error);
+        }
+    );
+
+    userService.getFriendRequests(
+        function(data){
+            $scope.requests = data;
+        },
+            function(error){
+            notifyService.showError(error.message, error)
         }
     )
 });

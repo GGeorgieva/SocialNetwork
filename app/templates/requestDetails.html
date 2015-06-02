@@ -1,0 +1,20 @@
+<ul class="list-unstyled">
+    <li ng-repeat="request in requests">
+        <div>
+            <img width=45 ng-src="{{request.user.profileImageData}}" ng-if="request.user.profileImageData">
+            <i class="glyphicon glyphicon-user" ng-if="!request.user.profileImageData"></i>
+        </div>
+        <div>
+            <p>{{request.user.name}}</p>
+        </div>
+        <div>
+            <div>
+                <button type="button" class="btn btn-primary" ng-click="approveFriendRequest(request.id)">Accept</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" ng-click="rejectFriendRequest(request.id)">Reject</button>
+            </div>
+        </div>
+    </li>
+
+</ul>

@@ -10,8 +10,8 @@
             </a>
         </p>
         <p class="col-md-1 col-xs-2">
-        <a href="#">
-            <i class="glyphicon glyphicon-user"></i>
+        <a href="#/user/home" popover-template = "requestDetailsPopover.templateUrl" popover-placement="bottom">
+            <i class="glyphicon glyphicon-user"><span class="badge" ng-if="requests.length">{{requests.length}}</span></i>
         </a>
         </p >
         <p class="col-md-1 col-xs-2">
